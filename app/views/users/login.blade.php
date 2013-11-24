@@ -6,6 +6,13 @@
 			<div class="well">
 				<h3>Login</h3>
 				<br/>
+				
+				@if (Session::has('message'))
+					<div class="alert alert-danger">
+						{{ Session::get('message') }}
+					</div>
+				@endif
+				
 				{{ Form::open(array('url' => '/login', 'method' => 'post')) }}
 					{{ Form::text('username', '', array('class'=>'form-control', 'placeholder'=>'Username')); }}<br>
 					{{ Form::password('password', array('class'=>'form-control', 'placeholder'=>'Password')); }}<br>

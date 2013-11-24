@@ -17,7 +17,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Mildy</a>
+				<a class="navbar-brand" href="/">Mildy</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="mainNavbar">
