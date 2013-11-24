@@ -24,3 +24,7 @@ Route::get('/', function()
 	else
 		return View::make('users.login');
 });
+
+Route::get('login', 'UserController@showLogin');
+Route::post('login', 'UserController@login');
+Route::post('logout', 'UserController@logout');
