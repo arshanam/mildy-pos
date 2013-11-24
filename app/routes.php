@@ -19,5 +19,8 @@ Route::get('/', function()
 
 Route::get('/', function()
 {
-	return View::make('users.login');
+	if (Auth::check())
+		return View::make('hello');
+	else
+		return View::make('users.login');
 });
