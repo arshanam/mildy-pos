@@ -4,4 +4,5 @@ composer.phar
 composer.lock
 .DS_Store
 Thumbs.db
-/config/local
+/app/config/local
+app/config/local
