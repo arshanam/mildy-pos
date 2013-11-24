@@ -28,7 +28,7 @@ $app->redirectIfTrailingSlash();
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('localhost', 'dev'),
+	'local' => array('localhost', 'dev', 'danny-Presario-V3700-Notebook-PC'),
 
 ));
 
