@@ -30,7 +30,7 @@ class UserController extends BaseController {
 			return Redirect::to('/');
 		}
 		else
-			return Redirect::back()->withInput()->with('message', trans('login.login_error'));
+			return Redirect::to('login')->withInput()->with('message', trans('login.login_error'));
 	}
 
 	/**

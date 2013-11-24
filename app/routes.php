@@ -22,7 +22,7 @@ Route::get('/', function()
 	if (Auth::check())
 		return View::make('hello');
 	else
-		return View::make('users.login');
+		return Redirect::to('login');
 });
 
 Route::get('login', 'UserController@showLogin');
