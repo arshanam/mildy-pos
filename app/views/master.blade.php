@@ -21,9 +21,13 @@
 			</div>
 
 			<div class="collapse navbar-collapse" id="mainNavbar">
-				<ul class="nav navbar-nav navbar-right">
-      				<li><a href="#">Logout</a></li>
-      			</ul>
+				@if (Auth::check())
+					<ul class="nav navbar-nav navbar-right">
+      					<li>
+      						<a href="logout">Logout</a>
+      					</li>
+      				</ul>
+				@endif				
 			</div>
 		</nav>
 		<div class="container">
