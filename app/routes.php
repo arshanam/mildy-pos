@@ -20,7 +20,7 @@ Route::get('/', function()
 Route::get('/', function()
 {
 	if (Auth::check())
-		return View::make('hello');
+		return View::make('users.home');
 	else
 		return Redirect::to('login');
 });
