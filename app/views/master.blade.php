@@ -6,6 +6,8 @@
 		<title>Mildy</title>
 		{{ HTML::style('css/bootstrap-theme.css') }}
 		{{ HTML::style('css/bootstrap.css') }}
+		{{ HTML::script('js/jquery.min.js')}}
+		{{ HTML::script('js/bootstrap.js'); }}
 	</head>
 
 	<body>
@@ -24,16 +26,22 @@
 				@if (Auth::check())
 					<ul class="nav navbar-nav navbar-right">
       					<li>
-      						<a href="logout">Logout</a>
+      						<a id="logout-link" href="/logout">Logout</a>
+      						<script>
+      							$('#logout-link').click(function(e) {
+      								e.preventDefault();
+      								$.post('/logout', function() {
+      									window.location = '/';
+      								});
+      							});
+      						</script>
       					</li>
       				</ul>
-				@endif				
+				@endif
 			</div>
 		</nav>
 		<div class="container">
 			@yield('content')
 		</div>
-		{{ HTML::script('js/jquery.min.js')}}
-		{{ HTML::script('js/bootstrap.js'); }}
 	</body>
 </html>
