@@ -29,4 +29,5 @@ Route::get('login', 'UserController@showLogin');
 Route::post('login', 'UserController@login');
 Route::post('logout', 'UserController@logout');
 
+Route::resource('staffs', 'StaffController');
 Route::resource('products', 'ProductController');
