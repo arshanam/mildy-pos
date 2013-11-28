@@ -6,6 +6,7 @@
 		<title>Mildy</title>
 		{{ HTML::style('css/bootstrap-theme.css') }}
 		{{ HTML::style('css/bootstrap.css') }}
+		{{ HTML::style('css/style.css') }}
 		{{ HTML::script('js/jquery.min.js')}}
 		{{ HTML::script('js/bootstrap.js'); }}
 	</head>
