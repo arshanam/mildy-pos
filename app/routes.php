@@ -28,7 +28,7 @@ Route::get('/', function()
 Route::group(array('before' => 'guest'), function()
 {
 	Route::get('login', 'UserController@showLogin');
-	Route::post('login', 'UserController@login');	
+	Route::post('login', 'UserController@login');
 });
 
 Route::group(array('before' => 'auth'), function()
