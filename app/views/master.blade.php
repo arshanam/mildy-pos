@@ -24,6 +24,9 @@
 
 			<div class="collapse navbar-collapse" id="mainNavbar">
 				@if (Auth::check())
+					<ul class="nav navbar-nav">
+						<li ><a href="/products">Products</a></li>
+					</ul>
 					<ul class="nav navbar-nav navbar-right">
       					<li>
       						<a id="logout-link" href="/logout">Logout</a>
