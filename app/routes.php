@@ -25,9 +25,16 @@ Route::get('/', function()
 		return Redirect::to('login');
 });
 
-Route::get('login', 'UserController@showLogin');
-Route::post('login', 'UserController@login');
-Route::post('logout', 'UserController@logout');
+Route::group(array('before' => 'guest'), function()
+{
+	Route::get('login', 'UserController@showLogin');
+	Route::post('login', 'UserController@login');	
+});
 
-Route::resource('staffs', 'StaffController');
-Route::resource('products', 'ProductController');
+Route::group(array('before' => 'auth'), function()
+{
+	Route::resource('staffs', 'StaffController');
+	Route::resource('products', 'ProductController');
+});
+
+Route::post('logout', 'UserController@logout');
