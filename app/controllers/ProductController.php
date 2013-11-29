@@ -9,7 +9,8 @@ class ProductController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('products.index');
+		$data['products'] = Product::all();
+		return View::make('products.index', $data);
 	}
 
 	/**
