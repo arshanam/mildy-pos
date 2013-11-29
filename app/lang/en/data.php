@@ -7,4 +7,10 @@ return array(
 	'success_deleted' => 'Data has been deleted.',
 	'no_data' => 'There is no data to be displayed.',
 	'add' => 'Add :subject',
+	'edit_subject' => 'Edit :subject',
+	'delete_subject' => 'Delete :subject',
+	'edit' => 'Edit',
+	'delete' => 'Delete',
+	'cancel' => 'Cancel',
+	'delete_confirmation' => 'Are you sure you want to delete :subject?',
 );

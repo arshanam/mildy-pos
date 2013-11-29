@@ -30,12 +30,18 @@ class ProductController extends \BaseController {
 	 */
 	public function store()
 	{
-		if ($this->validate(Input::get())->passes()) {
+		$input = Input::get();
+		$v = $this->validate($input);
+
+		if ($v->passes()) {
+			
+			unset($input['_token']);
+			
 			Product::create(Input::get());
 			return Redirect::to('products')->with('message', trans('data.success_saved'));
 		}
 		else
-			return Redirect::back()->with_input->with_errors->with('message', trans('data.error_saving'));
+			return Redirect::back()->withInput()->withErrors($v)->with('message', trans('data.error_saving'));
 	}
 
 	/**
@@ -58,6 +64,7 @@ class ProductController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+		$data['edit'] = true;
 		$data['product'] = Product::find($id);
 		return View::make('products.form', $data);
 	}
@@ -70,12 +77,15 @@ class ProductController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		if ($this->validate(Input::get())->passes()) {
+		$input = Input::get();
+		$v = $this->validate($input);
+
+		if ($v->passes()) {
 			Product::find($id)->update(Input::get());
 			return Redirect::to('products')->with('message', trans('data.success_updated'));
 		}
 		else
-			return Redirect::back()->with_input->with_errors->with('message', trans('data.error_saving'));
+			return Redirect::back()->withInput()->withErrors($v)->with('message', trans('data.error_saving'));
 	}
 
 	/**
@@ -89,7 +99,7 @@ class ProductController extends \BaseController {
 		$product = Product::find($id);
 		$product->delete();
 
-		return Redirect::to('products')->with('message', trans('data.success_deleted'));
+		return json_encode(array('success' => true));
 	}
 
 	/**
@@ -97,7 +107,10 @@ class ProductController extends \BaseController {
 	 */
 	private function validate($input)
 	{
-		$rules = array();
+		$rules = array(
+			'name' => 'required',
+			'price' => 'required',
+		);
 
 		return Validator::make($input, $rules);
 	}
