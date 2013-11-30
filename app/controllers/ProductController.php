@@ -53,7 +53,7 @@ class ProductController extends \BaseController {
 	public function show($id)
 	{
 		$data['product'] = Product::find($id);
-		return View::make('products.show');
+		return View::make('products.show', $data);
 	}
 
 	/**

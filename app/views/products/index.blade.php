@@ -25,7 +25,7 @@
 			@if (count($products) > 0)
 				@foreach ($products as $product)
 					<tr>
-						<td>{{ $product->name }}</td>
+						<td><a href="/products/{{ $product->id }}">{{ $product->name }}</a></td>
 						<td>{{ $product->price }}</td>
 						<td>{{ $product->description }}</td>
 						<td style="width: 120px; text-align: right">
