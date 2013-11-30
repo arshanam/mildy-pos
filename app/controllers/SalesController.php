@@ -9,7 +9,8 @@ class SalesController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('sales.index');
+		$data['sales'] = Sales::all();
+		return View::make('sales.index', $data);
 	}
 
 	/**
@@ -29,12 +30,18 @@ class SalesController extends \BaseController {
 	 */
 	public function store()
 	{
-		if ($this->validate(Input::get())->passes()) {
+		$input = Input::get();
+		$v = $this->validate($input);
+
+		if ($v->passes()) {
+			
+			unset($input['_token']);
+			
 			Sales::create(Input::get());
 			return Redirect::to('sales')->with('message', trans('data.success_saved'));
 		}
 		else
-			return Redirect::back()->with_input->with_errors->with('message', trans('data.error_saving'));
+			return Redirect::back()->withInput()->withErrors($v)->with('message', trans('data.error_saving'));
 	}
 
 	/**
@@ -57,6 +64,7 @@ class SalesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+		$data['edit'] = true;
 		$data['sales'] = Sales::find($id);
 		return View::make('sales.form', $data);
 	}
@@ -69,12 +77,15 @@ class SalesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		if ($this->validate(Input::get())->passes()) {
+		$input = Input::get();
+		$v = $this->validate($input);
+
+		if ($v->passes()) {
 			Sales::find($id)->update(Input::get());
 			return Redirect::to('sales')->with('message', trans('data.success_updated'));
 		}
 		else
-			return Redirect::back()->with_input->with_errors->with('message', trans('data.error_saving'));
+			return Redirect::back()->withInput()->withErrors($v)->with('message', trans('data.error_saving'));
 	}
 
 	/**
@@ -88,7 +99,7 @@ class SalesController extends \BaseController {
 		$sales = Sales::find($id);
 		$sales->delete();
 
-		return Redirect::to('sales')->with('message', trans('data.success_deleted'));
+		return json_encode(array('success' => true));
 	}
 
 	/**
