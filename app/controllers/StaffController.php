@@ -29,7 +29,22 @@ class StaffController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::get();
+		$v = $this->validate($input);
+
+		if ($v->passes()) {
+			unset($input['_token']);
+
+			$user = new User;
+			$user->username = $input['username'];
+			$user->password = Hash::make($input['password']);
+			$user->name = $input['name'];
+			$user->email = $input['email'];
+			$user->save();
+			return Redirect::to('staffs')->with('message', 'Data has been successfully saved.');
+		}else{
+			return Redirect::back()->withInput()->withErrors($v);
+		}		
 	}
 
 	/**
@@ -74,6 +89,18 @@ class StaffController extends \BaseController {
 	public function destroy($id)
 	{
 		//
+	}
+
+	private function validate($input)
+	{
+		$rules = array(
+			'username' => 'required',
+			'password' => 'required',
+			'name' => 'required',
+			'email' => 'required|email'
+		);
+
+		return Validator::make($input, $rules);
 	}
 
 }
