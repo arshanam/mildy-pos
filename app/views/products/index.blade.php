@@ -25,9 +25,9 @@
 			@if (count($products) > 0)
 				@foreach ($products as $product)
 					<tr>
-						<td><a href="/products/{{ $product->id }}">{{ $product->name }}</a></td>
-						<td>{{ $product->price }}</td>
-						<td>{{ $product->description }}</td>
+						<td><a href="/products/{{ $product->id }}">{{ e($product->name) }}</a></td>
+						<td>{{ e($product->price) }}</td>
+						<td>{{ e($product->description) }}</td>
 						<td style="width: 120px; text-align: right">
 							<a class="btn btn-default" title="{{ trans('data.edit') }}" href="/products/{{ $product->id }}/edit">
 								<span class="glyphicon glyphicon-pencil"></span>

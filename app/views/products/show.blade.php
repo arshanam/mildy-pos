@@ -1,10 +1,10 @@
 @extends('main')
 
 @section('content')
-	<h1>{{ $product->name }}</h1>
-	<p>{{ $product->price }}</p>
+	<h1>{{ e($product->name) }}</h1>
+	<p>{{ e($product->price) }}</p>
 
 	<div>
-		{{ $product->description }}
+		{{ e($product->description) }}
 	</div>
 @stop
