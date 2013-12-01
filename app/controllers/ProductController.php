@@ -109,7 +109,7 @@ class ProductController extends \BaseController {
 	{
 		$rules = array(
 			'name' => 'required',
-			'price' => 'required',
+			'price' => 'required|numeric'
 		);
 
 		return Validator::make($input, $rules);
