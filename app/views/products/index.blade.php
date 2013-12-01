@@ -19,7 +19,7 @@
 			<th>{{ trans('product.name') }}</th>
 			<th>{{ trans('product.price') }}</th>
 			<th>{{ trans('product.description') }}</th>
-			<th></th>
+			<th>eaa</th>
 		</thead>
 		<tbody>
 			@if (count($products) > 0)

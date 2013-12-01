@@ -1,19 +1,29 @@
 @extends('main')
 
 @section('content')
-	<div>
-		<div class="menu" align="center">
-			<a class="btn btn-primary" href="#"><span class="glyphicon glyphicon-star"></span>Add Staff</a>
+	<h1>Staffs</h1>
+
+	@if (Session::has('message'))
+		<div class="alert alert-success alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			{{ Session::get('message') }}
 		</div>
-		<div class="content">
-			<table class="table table-bordered">
-				<tr>
-					<th>Username</th>
-					<th>Name</th>
-					<th>Email</th>
-					<th>Action</th>
-				</tr>
-			</table>
-		</div>
-	</div>
+	@endif
+
+	<a class="btn btn-primary" href="/staffs/create">
+		Add Staff
+	</a>
+
+	<table class="table">
+		<thead>
+			<th>Name</th>
+			<th>Email</th>
+			<th></th>
+			<th></th>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+	
 @stop

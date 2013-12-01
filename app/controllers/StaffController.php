@@ -19,7 +19,7 @@ class StaffController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('staffs.form');
 	}
 
 	/**
