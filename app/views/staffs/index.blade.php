@@ -11,14 +11,14 @@
 	@endif
 
 	<a class="btn btn-primary" href="/staffs/create">
-		Add Staff
+		{{ trans('data.add', array('subject' => trans('staff.staff'))) }}
 	</a>
 
 	<table class="table">
 		<thead>
+			<th>Username</th>
 			<th>Name</th>
-			<th>Email</th>
-			<th></th>
+			<th>Email</th>			
 			<th></th>
 		</thead>
 		<tbody>
