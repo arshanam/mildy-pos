@@ -9,7 +9,8 @@ class StaffController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('staffs.index');
+		$data['staffs'] = User::all();
+		return View::make('staffs.index', $data);
 	}
 
 	/**

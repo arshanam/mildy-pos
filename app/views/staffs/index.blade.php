@@ -17,12 +17,24 @@
 	<table class="table">
 		<thead>
 			<th>{{ trans('staff.username') }}</th>
-			<th>>{{ trans('staff.name') }}</th>
-			<th>>{{ trans('staff.email') }}</th>			
+			<th>{{ trans('staff.name') }}</th>
+			<th>{{ trans('staff.email') }}</th>			
 			<th></th>
 		</thead>
 		<tbody>
-			
+			@if (count($staffs) > 0)
+				@foreach ($staffs as $staff)
+			<tr>
+				<td>{{ $staff->username }}</td>
+				<td>{{ $staff->name }}</td>
+				<td>{{ $staff->email }}</td>
+			</tr>
+				@endforeach
+			@else
+			<tr>
+				<td></td>
+			</tr>
+			@endif
 		</tbody>
 	</table>
 	
