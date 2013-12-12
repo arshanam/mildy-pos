@@ -16,9 +16,9 @@
 
 	<table class="table">
 		<thead>
-			<th>Username</th>
-			<th>Name</th>
-			<th>Email</th>			
+			<th>{{ trans('staff.username') }}</th>
+			<th>>{{ trans('staff.name') }}</th>
+			<th>>{{ trans('staff.email') }}</th>			
 			<th></th>
 		</thead>
 		<tbody>

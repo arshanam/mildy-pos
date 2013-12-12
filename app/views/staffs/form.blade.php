@@ -2,7 +2,7 @@
 
 @section('content')
 	<legend>
-		Add Staff
+		{{ trans('data.add', array('subject' => trans('staff.staff'))) }}
 	</legend>
 
 	@if (Session::has('message'))
