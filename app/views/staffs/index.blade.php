@@ -45,5 +45,24 @@
 			@endif
 		</tbody>
 	</table>
+
+	<div id="delete-confirm" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					Delete Confirmation
+				</div>
+
+				<div class="modal-body">
+					{{ trans('data.delete_confirmation', array('subject' => trans('staff.staff'))) }}
+				</div>
+
+				<div class="modal-footer">
+					<button id="confirm-delete" class="btn btn-danger">{{ trans('data.delete') }}</button>
+					<button class="btn btn-default" data-dismiss="modal">{{ trans('data.cancel') }}</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	
 @stop
