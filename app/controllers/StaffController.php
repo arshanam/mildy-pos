@@ -89,7 +89,10 @@ class StaffController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$staff = User::find($id);
+		$staff->delete();
+
+		return json_encode(array('success' => true));
 	}
 
 	private function validate($input)

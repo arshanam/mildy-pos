@@ -65,4 +65,22 @@
 		</div>
 	</div>
 	
+	<script>
+		$(document).ready(function() {
+			$('.delete-button').click(function(e) {
+				$('#confirm-delete').attr('data-id', $(this).attr('data-id'));
+			});
+
+			$('#confirm-delete').click(function(e) {
+				$.ajax({
+					url: '/staffs/' + $(this).attr('data-id'),
+					type: 'DELETE',
+					success: function(result) {
+						console.log('transitioning')
+						location.reload();
+					}
+				});
+			});
+		});
+	</script>
 @stop
