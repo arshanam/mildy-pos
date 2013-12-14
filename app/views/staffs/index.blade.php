@@ -25,7 +25,7 @@
 			@if (count($staffs) > 0)
 				@foreach ($staffs as $staff)
 			<tr>
-				<td><a href="">{{ e($staff->username) }}</a></td>
+				<td><a href="/staffs/{{ $staff->id }}">{{ e($staff->username) }}</a></td>
 				<td>{{ e($staff->name) }}</td>
 				<td>{{ e($staff->email) }}</td>
 				<td style="width: 120px; text-align: right">

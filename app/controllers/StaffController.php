@@ -56,7 +56,8 @@ class StaffController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$data['staff'] = User::find($id);
+		return View::make('staffs.show', $data);
 	}
 
 	/**
