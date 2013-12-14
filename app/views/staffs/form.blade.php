@@ -2,7 +2,11 @@
 
 @section('content')
 	<legend>
-		{{ trans('data.add', array('subject' => trans('staff.staff'))) }}
+		@if(!isset($staff))
+			{{ trans('data.add', array('subject' => trans('staff.staff'))) }}
+		@else
+			{{ trans('data.edit_subject', array('subject' => trans('staff.staff'))) }}
+		@endif		
 	</legend>
 
 	@if (Session::has('message'))

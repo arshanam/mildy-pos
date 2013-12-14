@@ -29,7 +29,7 @@
 				<td>{{ e($staff->name) }}</td>
 				<td>{{ e($staff->email) }}</td>
 				<td style="width: 120px; text-align: right">
-					<a class="btn btn-default" title="{{ trans('data.edit') }}" href="">
+					<a class="btn btn-default" title="{{ trans('data.edit') }}" href="/staffs/{{ $staff->id }}/edit">
 						<span class="glyphicon glyphicon-pencil"></span>
 					</a>
 					<button class="btn btn-default delete-button" title="{{ trans('data.delete') }}"  data-toggle="modal" href="#delete-confirm" data-id="{{ $staff->id }}">

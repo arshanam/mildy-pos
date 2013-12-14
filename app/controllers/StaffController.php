@@ -67,7 +67,9 @@ class StaffController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$data['edit'] = true;
+		$data['staff'] = User::find($id);
+		return View::make('staffs.form', $data);
 	}
 
 	/**
