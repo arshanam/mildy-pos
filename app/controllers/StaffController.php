@@ -80,7 +80,20 @@ class StaffController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$input = Input::all();
+		$v = $this->validate2($input);
+
+		if ($v->passes()) {
+			$user = User::find($id);
+			$user->username = $input['username'];
+			$user->name = $input['name'];
+			$user->email = $input['email'];
+			$user->save();
+			
+			return Redirect::to('staffs')->with('message', trans('data.success_updated'));
+		}
+		else
+			return Redirect::back()->withInput()->withErrors($v)->with('message', trans('error_saving'));
 	}
 
 	/**
@@ -102,6 +115,17 @@ class StaffController extends \BaseController {
 		$rules = array(
 			'username' => 'required',
 			'password' => 'required',
+			'name' => 'required',
+			'email' => 'required|email'
+		);
+
+		return Validator::make($input, $rules);
+	}
+
+	private function validate2($input)
+	{
+		$rules = array(
+			'username' => 'required',
 			'name' => 'required',
 			'email' => 'required|email'
 		);
