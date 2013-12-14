@@ -35,6 +35,7 @@ Route::group(array('before' => 'auth'), function()
 {
 	Route::resource('staffs', 'StaffController');
 	Route::resource('products', 'ProductController');
+	Route::resource('sales', 'SalesController');
 });
 
 Route::post('logout', 'UserController@logout');
