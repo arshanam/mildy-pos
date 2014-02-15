@@ -17,8 +17,8 @@
 			<div class="collapse navbar-collapse" id="mainNavbar">
 				@if (Auth::check())
 					<ul class="nav navbar-nav">
-						<li ><a href="/staffs">Staffs</a></li>
-						<li ><a href="/products">Products</a></li>
+						<li><a href="/staffs">Staffs</a></li>
+						<li><a href="/products">Products</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li>
@@ -32,9 +32,11 @@
 								});
 							</script>
 						</li>
+						<p class="navbar-text"><i>{{ date("d F Y") }}</i></p>
 					</ul>
 				@endif
 			</div>
+
 		</div>
 	</nav>
 	<div class="container">
